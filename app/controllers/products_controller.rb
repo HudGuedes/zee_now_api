@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_product, only: [:show, :update, :destroy]
 
   def index
@@ -43,7 +44,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:slug, :name, :description, :manufacturer, :active, skus_attributes: [:id, :code, :name, :stock, :price_list, :listing_price, :_destroy])
+    params.require(:product).permit(:slug, :name, :description, :manufacturer, :active, skus_attributes: [:id, :code, :name, :stock, :price_list, :listing_price])
   end
 end
     
