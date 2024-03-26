@@ -45,4 +45,3 @@ class SkusController < ApplicationController
 		params.require(:sku).permit(:code, :name, :stock, :price_table, :price_listing)
 	end
 end
-    
